@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id("io.freefair.lombok") version "8.1.0"
+    id('io.freefair.lombok') version '8.1.0'
 }
 
 group = 'org.ksplus'
@@ -9,6 +9,15 @@ version = '1.0-SNAPSHOT'
 repositories {
     mavenLocal()
     mavenCentral()
+}
+
+sourceSets {
+    intTest {
+        java.srcDir file('src/intTest/java')
+        resources.srcDir file('src/intTest/resources')
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
+    }
 }
 
 dependencies {
@@ -22,17 +31,20 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.hamcrest:hamcrest:2.2'
 
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-web'
-//    testRuntimeOnly 'com.h2database:h2'
+    intTestImplementation 'org.hamcrest:hamcrest:2.2'
 
-    // Lombok
-//    compileOnly 'org.projectlombok:lombok'
-//    testCompileOnly 'org.projectlombok:lombok'
-//    annotationProcessor 'org.projectlombok:lombok'
-//    testAnnotationProcessor 'org.projectlombok:lombok'
+    //noinspection VulnerableLibrariesLocal
+    intTestImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.1'
+    intTestImplementation 'org.springframework.boot:spring-boot-starter-web:3.1.1'
+    intTestRuntimeOnly 'com.h2database:h2:2.2.220'
 }
 
 test {
+    useJUnitPlatform()
+}
+
+task intTest(type: Test) {
+    testClassesDirs = sourceSets.intTest.output.classesDirs
+    classpath = sourceSets.intTest.runtimeClasspath
     useJUnitPlatform()
 }
