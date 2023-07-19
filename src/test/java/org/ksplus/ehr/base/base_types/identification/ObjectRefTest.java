@@ -1,4 +1,4 @@
-package org.ksplus.base.base_types.identification;
+package org.ksplus.ehr.base.base_types.identification;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

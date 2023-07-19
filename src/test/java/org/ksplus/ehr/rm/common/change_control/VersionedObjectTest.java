@@ -1,4 +1,4 @@
-package org.ksplus.rm.common.change_control;
+package org.ksplus.ehr.rm.common.change_control;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -6,8 +6,8 @@ import static org.hamcrest.Matchers.equalTo;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
-import org.ksplus.base.base_types.identification.ObjectId;
-import org.ksplus.base.base_types.identification.ObjectRef;
+import org.ksplus.ehr.base.base_types.identification.ObjectId;
+import org.ksplus.ehr.base.base_types.identification.ObjectRef;
 
 class VersionedObjectTest {
 

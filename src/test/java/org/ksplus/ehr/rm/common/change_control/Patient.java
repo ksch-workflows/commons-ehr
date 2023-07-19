@@ -1,4 +1,4 @@
-package org.ksplus.rm.common.change_control;
+package org.ksplus.ehr.rm.common.change_control;
 
 public record Patient(String name, String address, String phoneNumber) {
 }
