@@ -36,6 +36,7 @@ dependencies {
     //noinspection VulnerableLibrariesLocal
     intTestImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.1'
     intTestImplementation 'org.springframework.boot:spring-boot-starter-web:3.1.1'
+    intTestImplementation 'org.springframework.boot:spring-boot-starter-jdbc:3.1.1'
     intTestRuntimeOnly 'com.h2database:h2:2.2.220'
 }
 
@@ -50,3 +51,7 @@ task intTest(type: Test) {
 }
 
 check.dependsOn intTest
+
+processIntTestResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
