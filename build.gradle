@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id("io.freefair.lombok") version "8.1.0"
 }
 
 group = 'org.ksplus'
@@ -11,10 +12,25 @@ repositories {
 }
 
 dependencies {
+    implementation "com.experimental-software.base:base-types-api:+"
+    implementation "com.experimental-software.base:foundation-types-api:+"
+    implementation "com.experimental-software.base:resource-model-api:+"
     implementation "com.experimental-software.rm:common-api:+"
+    implementation 'org.projectlombok:lombok:1.18.26'
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-web'
+//    testRuntimeOnly 'com.h2database:h2'
+
+    // Lombok
+//    compileOnly 'org.projectlombok:lombok'
+//    testCompileOnly 'org.projectlombok:lombok'
+//    annotationProcessor 'org.projectlombok:lombok'
+//    testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 test {
